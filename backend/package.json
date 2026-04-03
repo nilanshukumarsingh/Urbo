@@ -1,7 +1,7 @@
 {
-  "name": "urban-pro-backend",
+  "name": "urbanro-backend",
   "version": "1.0.0",
-  "description": "Node and Express based backend for a UrbanPro - Hyperlocal Service Marketplace platform.",
+  "description": "Node and Express based backend for a Urbanro - Hyperlocal Service Marketplace platform.",
   "license": "MIT",
   "author": "Nilanshu Kumar Singh",
   "type": "module",

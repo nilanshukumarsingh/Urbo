@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-2">UrbanPro</h3>
+            <h3 className="text-xl font-bold mb-2">Urbanro</h3>
             <p className="text-gray-400 mb-4">Connecting you with skilled professionals for all your service needs.</p>
             <div className="flex space-x-4">
               <Link to="#" className="text-gray-400 hover:text-white transition-colors">
@@ -71,7 +71,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">&copy; {new Date().getFullYear()} UrbanPro. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">&copy; {new Date().getFullYear()} Urbanro. All rights reserved.</p>
             <div className="mt-4 md:mt-0">
               <ul className="flex space-x-6">
                 <li>

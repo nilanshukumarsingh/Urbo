@@ -10,7 +10,7 @@ const BecomeProvider = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Grow Your Business With UrbanPro</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Grow Your Business With Urbanro</h1>
             <p className="text-xl text-indigo-100 mb-8">
               Join thousands of successful service providers who have expanded their business and increased their earnings on our platform.
             </p>
@@ -54,7 +54,7 @@ const BecomeProvider = () => {
       <section id="benefits" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose UrbanPro?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Urbanro?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">We provide everything you need to grow your business and deliver exceptional service to your customers.</p>
           </div>
 
@@ -155,7 +155,7 @@ const BecomeProvider = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Success Stories</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Hear from providers who have grown their business with UrbanPro.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">Hear from providers who have grown their business with Urbanro.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -164,7 +164,7 @@ const BecomeProvider = () => {
                 name: "Sarah Johnson",
                 role: "Home Cleaning Expert",
                 image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
-                quote: "Since joining UrbanPro, my business has grown exponentially. I now have a steady stream of clients and my income has doubled.",
+                quote: "Since joining Urbanro, my business has grown exponentially. I now have a steady stream of clients and my income has doubled.",
               },
               {
                 name: "Michael Chen",
@@ -176,7 +176,7 @@ const BecomeProvider = () => {
                 name: "Emily Rodriguez",
                 role: "Personal Trainer",
                 image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
-                quote: "UrbanPro has helped me build a strong client base and reputation. The support team is always there when I need them.",
+                quote: "Urbanro has helped me build a strong client base and reputation. The support team is always there when I need them.",
               },
             ].map((story, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
@@ -206,7 +206,7 @@ const BecomeProvider = () => {
             {[
               {
                 question: "How much does it cost to join?",
-                answer: "Joining UrbanPro is completely free. We only take a small commission on completed bookings.",
+                answer: "Joining Urbanro is completely free. We only take a small commission on completed bookings.",
               },
               {
                 question: "How do I get paid?",
@@ -235,7 +235,7 @@ const BecomeProvider = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Grow Your Business?</h2>
-            <p className="text-xl text-indigo-100 mb-8">Join UrbanPro today and start connecting with customers in your area.</p>
+            <p className="text-xl text-indigo-100 mb-8">Join Urbanro today and start connecting with customers in your area.</p>
             <a
               href="/register?type=provider"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 font-medium rounded-lg hover:bg-indigo-50 transition-colors">

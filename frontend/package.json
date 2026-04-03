@@ -1,8 +1,8 @@
 {
-  "name": "urban-pro-frontend",
+  "name": "urbanro-frontend",
   "private": true,
   "version": "1.0.0",
-  "description": "React based frontend for a UrbanPro - Hyperlocal Service Marketplace platform. Users can book local professionals and track services in real time.",
+  "description": "React based frontend for a Urbanro - Hyperlocal Service Marketplace platform. Users can book local professionals and track services in real time.",
   "type": "module",
   "scripts": {
     "dev": "vite",

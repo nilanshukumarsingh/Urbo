@@ -37,7 +37,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-bold text-indigo-600">
-              UrbanPro
+              Urbanro
             </Link>
           </div>
 

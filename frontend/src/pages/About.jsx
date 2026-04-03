@@ -130,7 +130,7 @@ const About = () => {
         <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl p-12 mb-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Join Our Growing Community</h2>
-            <p className="text-xl text-gray-600 mb-8">Whether you're looking for quality services or want to grow your business, UrbanPro is here to help you succeed.</p>
+            <p className="text-xl text-gray-600 mb-8">Whether you're looking for quality services or want to grow your business, Urbanro is here to help you succeed.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/services"

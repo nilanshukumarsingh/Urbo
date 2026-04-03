@@ -298,7 +298,7 @@ const ProviderDashboard = () => {
                       <p className="mt-2 text-gray-600">{review.comment}</p>
                       <div className="mt-2 text-sm text-gray-500">
                         <span>{review.booking.service}</span>
-                        <span className="mx-2">•</span>
+                        <span className="mx-2">â€¢</span>
                         <span>{review.booking.date}</span>
                       </div>
                     </div>
@@ -322,7 +322,7 @@ const ProviderDashboard = () => {
                   if (window.confirm("Are you sure you want to deactivate your account? This action cannot be undone.")) {
                     if (window.confirm("Please confirm again. Your account will be deactivated and you will need to contact support to reactivate it.")) {
                       logout();
-                      alert("Your account has been deactivated. Please contact support@urbanpro.com to reactivate your account.");
+                      alert("Your account has been deactivated. Please contact support@urbanro.com to reactivate your account.");
                       window.location.href = "/login";
                     }
                   }
@@ -787,7 +787,7 @@ const ProviderDashboard = () => {
                     </div>
                     <p className="text-sm text-gray-600 line-clamp-2">{review.comment}</p>
                     <div className="mt-2 text-xs text-gray-500">
-                      {review.booking.service} • {review.date}
+                      {review.booking.service} â€¢ {review.date}
                     </div>
                   </div>
                 ))}

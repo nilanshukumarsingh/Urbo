@@ -27,7 +27,7 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Professional",
     image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
-    content: "The quality of service is consistently outstanding. I've recommended UrbanPro to all my colleagues. It's transformed how I manage home services.",
+    content: "The quality of service is consistently outstanding. I've recommended Urbanro to all my colleagues. It's transformed how I manage home services.",
     rating: 5,
     location: "Chicago, IL",
     service: "Appliance Repair",
@@ -59,7 +59,7 @@ const TestimonialSection = () => {
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">Real experiences from customers who have transformed their service experience with UrbanPro.</p>
+          <p className="text-gray-600 max-w-2xl mx-auto">Real experiences from customers who have transformed their service experience with Urbanro.</p>
         </div>
 
         <div className="max-w-4xl mx-auto">

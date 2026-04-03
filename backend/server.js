@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (_req, res) => {
-  res.status(200).json({ message: "Urbo backend is running" });
+  res.status(200).json({ message: "Urbanro backend is running" });
 });
 
 app.get("/health", (_req, res) => {
