@@ -1,9 +1,11 @@
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { Search, MapPin, Star, Shield, Clock, X, Loader2 } from "lucide-react";
+import { Search, MapPin, Star, Shield, Clock, X, Loader2, ArrowRight } from "lucide-react";
 import { useServiceSearch } from "../../contexts/serviceSearchContext.jsx";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
+
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -12,6 +14,7 @@ const Hero = () => {
   const [searchInput, setSearchInput] = useState("");
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
   const [location, setLocation] = useState("Select city...");
+  const isKeyValid = GOOGLE_MAPS_API_KEY && GOOGLE_MAPS_API_KEY !== "Your Google Maps API Key";
 
   const {
     ready,
@@ -222,12 +225,28 @@ const Hero = () => {
                     placeholder="Search for a city..."
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
-                    disabled={!ready}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && !isKeyValid && value) {
+                        e.preventDefault();
+                        handleLocationSelect(value, null, null);
+                      }
+                    }}
+                    disabled={isKeyValid ? !ready : false}
                     className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   />
+                  {!isKeyValid && value && (
+                    <button
+                      type="button"
+                      onClick={() => handleLocationSelect(value, null, null)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-indigo-600 hover:text-indigo-700 font-medium flex items-center"
+                    >
+                      <span className="mr-1">Use</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  )}
                 </div>
 
-                {status === "OK" && (
+                {status === "OK" && isKeyValid && (
                   <ul className="mt-4 max-h-60 overflow-auto">
                     {data.map((suggestion) => (
                       <li key={suggestion.place_id}>

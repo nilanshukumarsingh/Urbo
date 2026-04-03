@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Node and Express based backend for a UrbanPro - Hyperlocal Service Marketplace platform.",
   "license": "MIT",
-  "author": "Infotact - Web Development Group 7",
+  "author": "Nilanshu Kumar Singh",
   "type": "module",
   "main": "server.js",
   "scripts": {

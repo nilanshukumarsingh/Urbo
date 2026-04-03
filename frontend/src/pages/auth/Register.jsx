@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Layout from "../../components/layout/Layout.jsx";
+import api from "../../utils/api.js";
+import toast from "react-hot-toast";
 
 // Base schema for common user fields
 const baseUserSchema = z.object({
@@ -52,42 +54,48 @@ const Register = () => {
 
   const onSubmitUser = async (data) => {
     try {
-      console.log("User registration data:", data);
-      // Add API call here
+      const payload = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        password: data.password,
+        role: "user"
+      };
+      
+      const response = await api.post('/auth/register', payload);
+      toast.success(response.data.message || "Registration successful!");
+      window.location.href = "/login";
     } catch (error) {
       console.error("Registration failed:", error);
+      const errorMessage = error.response?.data?.error || "Registration failed. Please try again.";
+      toast.error(errorMessage);
     }
   };
 
   const onSubmitProvider = async (data) => {
     try {
-      // In a real app, this would be an API call
-      console.log("Provider registration data:", data);
-
-      // Mock registration - create pending provider
-      const mockUser = {
-        id: Math.random().toString(36).substr(2, 9),
-        email: data.email,
+      const payload = {
         name: data.name,
+        email: data.email,
+        phone: data.phone,
+        password: data.password,
         role: "provider",
-        providerStatus: "pending",
-        businessDetails: {
-          businessName: data.businessName,
-          serviceCategory: data.serviceCategory,
-          experience: data.experience,
-        },
+        businessName: data.businessName,
+        experience: Number(data.experience),
+        // Providing empty arrays/strings for required backend fields, these could be updated later
+        bio: `${data.businessName} - ${data.serviceCategory}`,
+        availability: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        serviceAreas: ["City Center"],
+        servicesOfferedIds: ["default_service_id_placeholder"] // Provider needs at least one service offered ID
       };
-
-      // Store provider data (in a real app, this would go to a database)
-      const pendingProviders = JSON.parse(localStorage.getItem("pendingProviders") || "[]");
-      pendingProviders.push(mockUser);
-      localStorage.setItem("pendingProviders", JSON.stringify(pendingProviders));
-
-      // Show success message and redirect
-      alert("Registration successful! Please wait for admin approval.");
+      
+      const response = await api.post('/auth/register', payload);
+      toast.success(response.data.message || "Registration successful! Please wait for admin approval.");
       window.location.href = "/login";
     } catch (error) {
       console.error("Registration failed:", error);
+      const errorMessage = error.response?.data?.error || "Registration failed. Please try again.";
+      toast.error(errorMessage);
     }
   };
 

@@ -156,4 +156,4 @@ MIT
 
 ## 👨‍💻 Author
 
-**Infotact — Web Development Group 7**
+**Nilanshu Kumar Singh**

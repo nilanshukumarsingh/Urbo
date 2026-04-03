@@ -4,6 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useAuth } from '../../contexts/authContext.jsx';
 import Layout from '../../components/layout/Layout.jsx';
+import api from '../../utils/api.js';
+import toast from 'react-hot-toast';
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -11,7 +13,7 @@ const loginSchema = z.object({
 });
 
 const Login = () => {
-  const login = useAuth((state) => state.login);
+  const { login } = useAuth();
   
   const {
     register,
@@ -24,55 +26,20 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      if (data.email === 'admin@example.com' && data.password === 'password123') {
-        const mockUser = {
-          id: '1',
-          email: data.email,
-          name: 'Admin User',
-          role: 'admin',
-        };
-        login(mockUser);
-        window.location.href = '/dashboard';
-      } else if (data.email === 'provider@example.com' && data.password === 'password123') {
-        // Check provider status
-        const pendingProviders = JSON.parse(localStorage.getItem('pendingProviders') || '[]');
-        const provider = pendingProviders.find(p => p.email === data.email);
-        
-        if (provider && provider.providerStatus === 'pending') {
-          setError('root', {
-            message: 'Your account is pending approval from admin.',
-          });
-          return;
-        }
-
-        const mockUser = {
-          id: '2',
-          email: data.email,
-          name: 'Provider User',
-          role: 'provider',
-          providerStatus: 'approved',
-        };
-        login(mockUser);
-        window.location.href = '/dashboard';
-      } else if (data.email === 'user@example.com' && data.password === 'password123') {
-        const mockUser = {
-          id: '3',
-          email: data.email,
-          name: 'Regular User',
-          role: 'user',
-        };
-        login(mockUser);
-        window.location.href = '/dashboard';
-      } else {
-        setError('root', {
-          message: 'Invalid email or password',
-        });
-      }
+      const response = await api.post('/auth/login', data);
+      const resData = response.data;
+      
+      const userToStore = { ...resData.data, token: resData.token };
+      login(userToStore);
+      toast.success(resData.message || 'Login successful!');
+      window.location.href = '/dashboard';
     } catch (error) {
       console.error('Login failed:', error);
+      const errorMessage = error.response?.data?.error || 'Login failed. Please try again.';
       setError('root', {
-        message: 'Login failed. Please try again.',
+        message: errorMessage,
       });
+      toast.error(errorMessage);
     }
   };
 
